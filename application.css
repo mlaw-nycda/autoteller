@@ -21,3 +21,11 @@ html {
 .screen-grid div:nth-child(2) {
 	background-color: red;
 }
+
+.responsive {
+	width: 100%;
+}
+
+.image-container img {
+	width: 50%;
+}
