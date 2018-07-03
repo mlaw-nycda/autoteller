@@ -1,0 +1,23 @@
+html {
+	font-family: sans-serif;
+	width: 90%;
+}
+
+.container {
+	/* background-color: black; */
+}
+
+.screen-grid {
+	display: grid;
+	grid-template-rows: 400px;
+	grid-template-columns: 600px 600px;
+	grid-gap: 20px;
+}
+
+.screen-grid div:nth-child(1) {
+	background-color: blue;
+}
+
+.screen-grid div:nth-child(2) {
+	background-color: red;
+}
