@@ -22,3 +22,10 @@ html {
 .screen-grid div:nth-child(2) {
 	background-color: red;
 }
+
+.negativeBalance {
+	color: red;
+	padding: 8px;
+	background-color: pink;
+	font-size: 15px;
+}

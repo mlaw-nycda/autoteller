@@ -15,10 +15,20 @@ function registerCustomer() {
 	displayBalance = document.getElementById('displayBalance');
 	displayBalance.innerHTML = "$" + balance;
 	bankBalance = balance;
+
+	op = document.getElementById('protection');
+	if (op.checked) {
+		preventOverdraft = true;
+	} else {
+		preventOverdraft = false;
+	}
 }
 
 function updateScreen(bb) {
 	displayBalance.innerHTML = "$" + bb;
+	if (bb < 0) {
+		displayBalance.classList.add('negativeBalance');
+	}
 }
 // ATM USER
 // able to purchase items
@@ -31,7 +41,7 @@ function setBankBalance() {
 
 function withdrawal() {
 	withdrawalAmount = prompt('How much would you like to Withdraw?');
-	if (withdrawalAmount > 13000) {
+	if (withdrawalAmount > 3000) {
 		alert('Maximum withdrawal limit is $3000. Please enter an amount lower than $3000.');
 	} else {
 		if (withdrawalAmount > parseInt(bankBalance)) {
@@ -46,4 +56,21 @@ function withdrawal() {
 
 function inquiry() {
 	alert("$" + bankBalance);
+}
+
+function purchaseItem1() {
+	x = document.getElementById('item1').value;
+	if (preventOverdraft == true) {
+			if (x > bankBalance) {
+				alert('Your bank has prevented an overdraft!');
+			} else {
+				bankBalance = bankBalance - x;
+				alert('Your order has been shipped!');
+				updateScreen(bankBalance);
+			}
+} else {
+	bankBalance = bankBalance - x;
+	alert('Your order has been shipped!');
+	updateScreen(bankBalance);
+}
 }
