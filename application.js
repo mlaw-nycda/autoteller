@@ -31,18 +31,17 @@ function setBankBalance() {
 
 function withdrawal() {
 	withdrawalAmount = prompt('How much would you like to Withdraw?');
-
-	if (withdrawalAmount > 3000) {
+	if (withdrawalAmount > 13000) {
 		alert('Maximum withdrawal limit is $3000. Please enter an amount lower than $3000.');
+	} else {
+		if (withdrawalAmount > parseInt(bankBalance)) {
+			alert("OVERDRAFT ALERT");
+		} else {
+		bankBalance = bankBalance - withdrawalAmount;
+		alert("Transaction Complete! \nAvailable Balance: $" + bankBalance);
+		updateScreen(bankBalance);
+	 }
 	}
-	bankBalance = bankBalance - withdrawalAmount;
-	alert("Transaction Complete! \nAvailable Balance: $" + bankBalance);
-	updateScreen(bankBalance);
-	// if (withdrawalAmount > bankBalance) {
-	// 	alert('Transaction Declined! \nReason: Insufficient funds.');
-	// } else {
-
-	// }
 }
 
 function inquiry() {
