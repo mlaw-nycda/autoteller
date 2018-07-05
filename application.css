@@ -9,8 +9,9 @@ html {
 
 .screen-grid {
 	display: grid;
-	grid-template-rows: 400px;
-	grid-template-columns: 600px 600px;
+	grid-template: 400px / 600px 600px;
+	/* grid-template-rows: 400px;
+	grid-template-columns: 600px 600px; */
 	grid-gap: 20px;
 }
 
@@ -20,12 +21,4 @@ html {
 
 .screen-grid div:nth-child(2) {
 	background-color: red;
-}
-
-.responsive {
-	width: 100%;
-}
-
-.image-container img {
-	width: 50%;
 }

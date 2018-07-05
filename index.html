@@ -7,16 +7,29 @@
 	<div class="container">
   <h1 style="text-align:center;">Web ATM</h1>
   <hr>
-	<div class="screen-grid">
-		<div>Bank</div>
-		<div>ATM</div>
-	</div>
-  </div>
+	<h2>Bank</h2>
+	<h3 id="customerName"></h3>
+	<h5 style="font-weight:normal;" id="customerEmail"></h5>
+	<h5 style="font-weight:normal;" id="displayBalance"></h5>
 	<hr>
-	<h1>Images</h1>
-	<div class="container image-container" id="gallery">
+	First Name: <input type="text" id="firstName"><br>
+	Last Name: <input type="text" id="lastName"><br>
+	Email: <input type="email" id="email"><br>
+	Starting Balance: <input type="number" id="balance"><br>
 
+	<button onclick="registerCustomer()">Register Customer</button>
+
+	<h2>ATM User</h2>
+	$ <input type="number" id="initialBalance" onchange="setBankBalance()"/>
+  </div>
+
+	<div class="atm-screen">
+		<button onclick="inquiry()">Balance Inquiry</button><br>
+		<button onclick="withdrawal(); updateScreen(bb)">Withdrawal</button>
 	</div>
+
+
+
 	<script src="application.js"></script>
 </body>
 </html>

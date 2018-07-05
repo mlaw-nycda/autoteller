@@ -1,21 +1,50 @@
-var saiyans = [
-	'gohan.png',
-	'goku.jpg',
-	'nappa.png',
-	'vegeta.jpg',
-	'trunks.jpg'
-]
+// BANK SIDE
+// Overdraft if insufficient funds
+// Overdraft prevention for lower credit score
+function registerCustomer() {
+	firstName = document.getElementById('firstName').value;
+	lastName = document.getElementById('lastName').value;
+	email = document.getElementById('email').value;
 
-var gallery = document.getElementById('gallery');
+	displayName = document.getElementById('customerName');
+	displayEmail =  document.getElementById('customerEmail');
+	displayName.innerHTML = firstName + " " + lastName;
+	displayEmail.innerHTML = email;
 
-var count = 0;
-for (thisItem in saiyans) {
-	// print img tag
-	// set img src = "images/" + saiyans[count]
-	var newImage = document.createElement('img');
-	newImage.src = "images/" + saiyans[count];
-	newImage.classList.add("responsive");
-	newImage.classList.add("image-container");
-	gallery.appendChild(newImage);
-	count = count + 1;
+	balance = document.getElementById('balance').value;
+	displayBalance = document.getElementById('displayBalance');
+	displayBalance.innerHTML = "$" + balance;
+	bankBalance = balance;
+}
+
+function updateScreen(bb) {
+	displayBalance.innerHTML = "$" + bb;
+}
+// ATM USER
+// able to purchase items
+// overdraft prevention
+
+function setBankBalance() {
+	bankBalance = document.getElementById('initialBalance').value;
+	console.log(bankBalance);
+}
+
+function withdrawal() {
+	withdrawalAmount = prompt('How much would you like to Withdraw?');
+
+	if (withdrawalAmount > 3000) {
+		alert('Maximum withdrawal limit is $3000. Please enter an amount lower than $3000.');
+	}
+	bankBalance = bankBalance - withdrawalAmount;
+	alert("Transaction Complete! \nAvailable Balance: $" + bankBalance);
+	updateScreen(bankBalance);
+	// if (withdrawalAmount > bankBalance) {
+	// 	alert('Transaction Declined! \nReason: Insufficient funds.');
+	// } else {
+
+	// }
+}
+
+function inquiry() {
+	alert("$" + bankBalance);
 }
